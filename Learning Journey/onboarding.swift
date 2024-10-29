@@ -123,7 +123,7 @@ struct onboarding: View {
             .background(Color.black.ignoresSafeArea())
             .navigationDestination(isPresented: $navigateToCurrentDay) {
                 CurrentDay(learningGoal: textFieldInput, duration: selectedDuration)
-                    .navigationBarBackButtonHidden(true) // إخفاء زر "Back"
+                    .navigationBarBackButtonHidden(true) // Hide back button
                     .navigationBarHidden(true)
             }
         }

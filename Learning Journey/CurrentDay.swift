@@ -12,15 +12,15 @@ struct CurrentDay: View {
     @State var learningGoal: String
     @State var duration: String
     
-    @State private var currentDate = Date() // تاريخ اليوم الحالي
-    @State private var currentWeekStartDate = Date() // بداية الأسبوع الحالي
-    @State private var currentWeekDates: [Date] = [] // تواريخ الأسبوع الحالي
-    @State private var isPickerPresented = false // التحكم في إظهار قائمة الشهر والسنة
-    @State private var isLearned = false // للتحقق من حالة اليوم كـ "تم التعلم"
-    @State private var isFrozen = false // للتحقق من حالة اليوم كـ "مجمد"
-    @State private var streakCount: Int = UserDefaults.standard.integer(forKey: "streakCount") // عداد السلسلة
-    @State private var frozenDays: Int = UserDefaults.standard.integer(forKey: "frozenDays") // عداد الأيام المجمدة
-    @State private var lastLogDate: Date? = UserDefaults.standard.object(forKey: "lastLogDate") as? Date // تاريخ آخر تسجيل
+    @State private var currentDate = Date() // Current day
+    @State private var currentWeekStartDate = Date() // Start of the currrent week
+    @State private var currentWeekDates: [Date] = [] // Dates of the current week
+    @State private var isPickerPresented = false // Controls display of month/year picker
+    @State private var isLearned = false // Tracks if the day is marked as "Learned"
+    @State private var isFrozen = false // Tracks if the day is marked as "Frozen"
+    @State private var streakCount: Int = UserDefaults.standard.integer(forKey: "streakCount") // Streak counter
+    @State private var frozenDays: Int = UserDefaults.standard.integer(forKey: "frozenDays") // Freeze days counter
+    @State private var lastLogDate: Date? = UserDefaults.standard.object(forKey: "lastLogDate") as? Date // Last logged date
 
     // Computed property for freeze limits based on duration
     private var freezeLimit: Int {
@@ -186,13 +186,13 @@ struct CurrentDay: View {
                         isLearned = true
                         streakCount += 1
                         lastLogDate = Date()
-                                                UserDefaults.standard.set(streakCount, forKey: "streakCount")
-                                                UserDefaults.standard.set(lastLogDate, forKey: "lastLogDate")
+                         UserDefaults.standard.set(streakCount, forKey: "streakCount")
+                         UserDefaults.standard.set(lastLogDate, forKey: "lastLogDate")
                     }
                 }) {
                     Text(isLearned ? "Learned Today" : isFrozen ? "Day Freezed" : "Log today as Learned")
                         .font(.largeTitle)
-                        .foregroundColor(isLearned ? .orange : isFrozen ? .blue : .black)                                    .fontWeight(.bold)
+                        .foregroundColor(isLearned ? .orange : isFrozen ? .blue : .black)                           .fontWeight(.bold)
                         .frame(width: 300, height: 300)
                         .background(isLearned ? Color.orange.opacity(0.3) : isFrozen ? Color.blue.opacity(0.3) : Color.orange)
                         .clipShape(Circle())
@@ -320,7 +320,7 @@ struct CurrentDay: View {
     }
 }
 
-// MonthYearPicker: قائمة لاختيار الشهر والسنة
+// MonthYearPicker 
 struct MonthYearPicker: View {
     @Binding var selectedDate: Date
     let onDateSelected: () -> Void

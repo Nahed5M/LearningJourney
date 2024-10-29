@@ -1,17 +1,9 @@
-//
-//  Update.swift
-//  Learning Journey
-//
-//  Created by Nahed Almutairi on 26/04/1446 AH.
-//
-
-
 import SwiftUI
 
 struct Update: View {
     var learningGoal: String
     var duration: String
-    var onSave: (String, String) -> Void // استدعاء التحديث عند الحفظ
+    var onSave: (String, String) -> Void // Callback to save updates
     
     @State private var textFieldInput = ""
     @State private var selectedOption = "Month"
@@ -19,10 +11,10 @@ struct Update: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            // شريط التنقل مع أزرار "Back" و "Update"
+            // Navigation bar with "Back" and "Update" buttons
             HStack {
                 Button(action: {
-                    dismiss() // إغلاق الشاشة الحالية
+                    dismiss()
                 }) {
                     HStack {
                         Image(systemName: "chevron.left")
@@ -40,9 +32,9 @@ struct Update: View {
                 Spacer()
                 
                 Button(action: {
-                    // استدعاء onSave لتحديث القيم
+                    // Trigger onSave to update values
                     onSave(textFieldInput.isEmpty ? learningGoal : textFieldInput, selectedOption)
-                    dismiss() // إغلاق الشاشة الحالية
+                    dismiss()
                 }) {
                     Text("Update")
                         .foregroundColor(.orange)
@@ -50,9 +42,9 @@ struct Update: View {
             }
             .padding(.horizontal)
             .padding(.top, 20)
-            .navigationBarBackButtonHidden(true) 
+            .navigationBarBackButtonHidden(true)
             
-            // قسم الإدخال
+            // Input field section
             VStack(alignment: .leading) {
                 Text("I want to learn")
                     .fontWeight(.bold)
@@ -62,7 +54,7 @@ struct Update: View {
                 
                 ZStack(alignment: .leading) {
                     if textFieldInput.isEmpty {
-                        Text(learningGoal) // عرض الهدف الحالي كقيمة افتراضية
+                        Text(learningGoal) // Display current goal as placeholder
                             .foregroundColor(.gray)
                             .padding(.leading, 4)
                     }
@@ -82,7 +74,7 @@ struct Update: View {
             .padding(.horizontal)
             .padding(.top, 10)
             
-            // خيارات الوقت
+            // Duration selection buttons
             VStack(alignment: .leading) {
                 Text("I want to learn it in a")
                     .fontWeight(.bold)
@@ -90,17 +82,8 @@ struct Update: View {
                     .padding(.leading, 1)
                 
                 HStack {
-                    // أزرار الاختيار: أسبوع، شهر، سنة
                     ForEach(["Week", "Month", "Year"], id: \.self) { option in
-                        Button(action: {
-                            selectedOption = option
-                        }) {
-                            Text(option)
-                                .frame(width: 70, height: 40)
-                                .background(selectedOption == option ? Color.orange : Color.gray.opacity(0.3))
-                                .foregroundColor(selectedOption == option ? .black : .orange)
-                                .cornerRadius(8)
-                        }
+                        durationButton(for: option)
                     }
                 }
             }
@@ -111,9 +94,22 @@ struct Update: View {
         }
         .background(Color.black.ignoresSafeArea())
         .onAppear {
-            // تعيين القيم الحالية عند ظهور الصفحة
             textFieldInput = learningGoal
             selectedOption = duration
+        }
+    }
+    
+    // MARK: - Helper Function
+    
+    private func durationButton(for option: String) -> some View {
+        Button(action: {
+            selectedOption = option
+        }) {
+            Text(option)
+                .frame(width: 70, height: 40)
+                .background(selectedOption == option ? Color.orange : Color.gray.opacity(0.3))
+                .foregroundColor(selectedOption == option ? .black : .orange)
+                .cornerRadius(8)
         }
     }
 }
@@ -123,4 +119,3 @@ struct Update_Previews: PreviewProvider {
         Update(learningGoal: "Swift", duration: "Month") { _, _ in }
     }
 }
-
