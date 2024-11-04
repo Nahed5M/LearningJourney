@@ -36,6 +36,12 @@ companion for developing skills, whether learning a new language, mastering a cr
 professional abilities.
 
 
+User Flow 
+-----------------------------------------------------------------------
+
+<img width="1316" alt="Screenshot 1446-05-02 at 3 21 04 PM" src="https://github.com/user-attachments/assets/14d6e556-c26d-4fc8-98aa-a50c73d2e2cd">
+
+
 
 Requirements
 ----------------------------------------------------------------------------------------------------
