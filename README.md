@@ -10,6 +10,17 @@ consistent learning by allowing users to set a learning objective and track thei
 Users can “freeze” specific days to preserve their streak without penalty, keeping them motivated
 and on track.
 
+UI 
+----------------------------------------------------------------------------------------------------
+<img width="366" alt="Screenshot 1446-05-02 at 3 18 33 PM" src="https://github.com/user-attachments/assets/2af6fe25-f894-4e15-9ea8-d1ff2d32f6cf">
+
+<img width="366" alt="Screenshot 1446-05-02 at 3 18 46 PM" src="https://github.com/user-attachments/assets/9514d755-38b2-43c7-a62c-090be833ec34">
+
+<img width="364" alt="Screenshot 1446-05-02 at 3 18 59 PM" src="https://github.com/user-attachments/assets/50edb0ae-123d-4108-8258-f962b2879a19">
+
+<img width="364" alt="Screenshot 1446-05-02 at 3 19 11 PM" src="https://github.com/user-attachments/assets/c9e90e5c-0fa0-4e5b-b628-3aa09c982a59">
+
+<img width="367" alt="Screenshot 1446-05-02 at 3 19 20 PM" src="https://github.com/user-attachments/assets/5f4ce8f8-d022-4c44-9c3d-b4bf92d573e1">
 
 
 The Value of the Learning Tracker App
